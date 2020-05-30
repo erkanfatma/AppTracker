@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.AppTracker.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.AppTracker.Mobile.Views.NetworkUsagePage"
+             Title="Network Usage">
+    <ContentPage.Content>
+        <StackLayout Margin="5,5,5,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                </Grid.RowDefinitions>
+                <controls:CustomSearchBar  x:Name="appSearchBar" TextChanged="AppSearchBar_TextChanged"   BackgroundColor="#ececec" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="&#xf160;" FontFamily="{StaticResource FontAwesomeRegular}" FontSize="Large" BackgroundColor="Transparent"  HorizontalOptions="EndAndExpand" x:Name="AtMostButton" Clicked="AtMostButton_Clicked" IsVisible="True" TextColor="#f8b24f"  Grid.Row="0" Grid.Column="1"/>
+                <Button Text="&#xf161;" FontFamily="{StaticResource FontAwesomeRegular}" FontSize="Large" BackgroundColor="Transparent"  HorizontalOptions="EndAndExpand" x:Name="AtLeastButton" Clicked="AtLeastButton_Clicked" IsVisible="False" TextColor="#f8b24f"  Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+            <ListView x:Name="lstApps" ItemsSource="{Binding .}" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10" BackgroundColor="#f0f0f0" Margin="5,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding AppName}" TextColor="#ea9a96" FontSize="Medium" Grid.Column="1" Grid.Row="0" FontAttributes="Bold"/>
+                                    <Label Text="{Binding NetworkAppUsageString}"  Grid.Column="1" Grid.Row="1" TextColor="#f8b24f" FontSize="Default"/>
+                                    <Label Text="{Binding PackageName}"  Grid.Column="1" Grid.Row="2" TextColor="#303960" FontSize="Small" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" BackgroundColor="#fff7f7" Margin="0,0">
+                <Button Text="TODAY" Clicked="OrderByTimeButton_Clicked" BackgroundColor="Transparent" TextColor="#584153"/>
+                <Button Text="WEEK" Clicked="OrderByTimeButton_Clicked"  BackgroundColor="Transparent" TextColor="#584153"/>
+                <Button Text="MONTH" Clicked="OrderByTimeButton_Clicked" BackgroundColor="Transparent" TextColor="#584153"/>
+                <Button Text="YEAR" Clicked="OrderByTimeButton_Clicked" BackgroundColor="Transparent" TextColor="#584153"/>
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

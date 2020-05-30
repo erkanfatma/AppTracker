@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AU.AppTracker.Mobile.CustomControls"
+             mc:Ignorable="d"
+             x:Class="AU.AppTracker.Mobile.MainPage">
+
+    <StackLayout Margin="10,10,10,10">
+        <controls:CustomSearchBar  x:Name="appSearchBar" TextChanged="AppSearchBar_TextChanged"   BackgroundColor="#ececec" />
+        <ListView x:Name="lstApps" ItemsSource="{Binding .}" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" BackgroundColor="#f0f0f0" Margin="5,5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding AppName}" TextColor="#ea9a96" FontSize="Medium" Grid.Column="1" Grid.Row="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding TimeAppUsageString}"  Grid.Column="1" Grid.Row="1" TextColor="#f8b24f" FontSize="Default"/>
+                                <Label Text="{Binding PackageName}"  Grid.Column="1" Grid.Row="2" TextColor="#303960" FontSize="Small" />
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
