@@ -102,6 +102,17 @@ To reach data usage by Mobile, ConnectivityType is selected as Mobile.
 NetworkStats networkStatsMobile = networkStatsManager.QueryDetailsForUid(ConnectivityType.Mobile, null, startMillis, endMillis, uid);
 ```
 
+##Conclusion
+Atracker is an application that controls mobile applications’ actions by using how long an application works on smartphones and its network usage through Wi-Fi or Mobile data. For example, a user installed a game app called “sudoku” and it contains no advertisement. The user does not even log in to the game application. To sum up, the application does not need an internet connection. However, the game needs an internet connection and it can be sent your data in the background. Atracker controls those kinds of third-party applications to improve personal privacy on Android devices. Atracker provides a statistic about applications, such as the most used application list or applications that have most network usage. The report comes from atracker mobile application, it can be seen which application is most popular, which application is a third-party app, and most used, etc.
 
+In conclusion, this project provides to control applications that are located in the smartphone. Reporting system will be generated and application will be worked on background in after days. With these reports, atracker will evaluate which applications are not safe for mobile phones. It will create a list that contains unreliable applications.
 
+##References
+1. https://play.google.com/store/apps/details?id=com.agrvaibhav.AppUsageTracking
+2. https://android.stackexchange.com/questions/7593/how-can-i-track-app-usage
+3. https://play.google.com/store/apps/details?id=nextapp.systempanel.r1
+4. https://buildfire.com/app-statistics/
+5. https://ico.org.uk/media/for-organisations/documents/1596/privacy-in-mobile-apps-dp-guidance.pdf
+6. https://www.researchgate.net/publication/264791691_Improving_App_Privacy_Nudging_App_Developers_to_Protect_User_Privacy
+7. https://www.researchgate.net/publication/330202257_Privacy_Friendly_Apps-Making_Developers_Aware_of_Privacy_Violations
 
